@@ -1,0 +1,81 @@
+.list-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.list-item {
+    height: 150px;
+    background: lightgray;
+    margin: 10px 0;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.list-item-name {
+    width: 30%;
+}
+
+.list-img {
+    height: 90%;
+    width: 10%;
+    margin: 2px 20px;
+}
+
+.list-price {
+    font-size: 28px;
+    margin: 0px 10%;
+}
+
+.list-edit-btn {
+    margin-right: 10px;
+    height: 50px;
+    width: 80px;
+    padding: 20px 20px;
+    background: #007e33;
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
+
+.list-edit-btn:hover {
+    background: #00c851;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.list-delete-btn {
+    margin-right: 10px;
+    height: 50px;
+    width: 80px;
+    padding: 20px 20px;
+    background: #cc0000;
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
+
+.list-delete-btn:hover {
+    background: #ff4444;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.list-show-btn {
+    height: 50px;
+    width: 120px;
+    padding: 20px 20px;
+    background: #0099cc;
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
+
+.list-show-btn:hover {
+    background: #33b5e5;
+    cursor: pointer;
+    transition: 0.4s;
+}

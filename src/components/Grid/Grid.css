@@ -1,0 +1,73 @@
+.grid-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.grid-item {
+    width: 400px;
+    height: 500px;
+    background: lightgray;
+    margin: 40px 60px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid-item > a {
+    width: 100%;
+    height: 100%;
+}
+
+.grid-img {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+}
+
+.grid-btns-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.grid-edit-btn {
+    margin-right: 10%;
+    height: 50px;
+    width: 80px;
+    padding: 20px 20px;
+    background: #007e33;
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
+
+.grid-edit-btn:hover {
+    background: #00c851;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.grid-delete-btn {
+    margin-right: 50%;
+    height: 50px;
+    width: 80px;
+    padding: 20px 20px;
+    background: #cc0000;
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
+
+.grid-delete-btn:hover {
+    background: #ff4444;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.grid-price {
+    font-size: 24px;
+}

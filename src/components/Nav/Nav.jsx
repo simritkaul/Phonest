@@ -2,7 +2,6 @@ import React from "react";
 import "./Nav.css";
 import phonestLogo from "../../assets/Phonest Logo.png";
 import { FaSearch } from "react-icons/fa";
-import { FaShoppingCart } from "react-icons/fa";
 
 const Nav = () => {
     return (
