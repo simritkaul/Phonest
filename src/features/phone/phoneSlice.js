@@ -13,11 +13,24 @@ export const phoneSlice = createSlice({
             state.data.push(action.payload);
         },
         deletePhone: (state, action) => {
-            state.data.splice(action.payload.id - 1, action.payload.id - 1);
+            const foundIdx = state.data.findIndex((datum) => datum.id === action.payload.id);
+            if (foundIdx >= 0) {
+                if (state.data.length === 1) {
+                    state.data = [];
+                } else {
+                    state.data.splice(foundIdx, 1);
+                }
+            }
+            // state.data.splice(action.payload.id - 1, 1);
             // return state.data.filter((phone) => phone.name !== action.payload);
         },
         editPhone: (state, action) => {
-            state.data[action.payload.id - 1] = action.payload;
+            const foundIdx = state.data.findIndex((datum) => datum.id === action.payload.id);
+            console.log(foundIdx);
+            if (foundIdx >= 0) {
+                state.data[foundIdx] = action.payload;
+            }
+            console.log(state.data[foundIdx]);
         },
     },
 });

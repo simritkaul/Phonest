@@ -11,7 +11,7 @@ const Grid = ({ phones }) => {
             {phones.map((phone) => {
                 return (
                     <div className='grid-item' key={phone.id}>
-                        <Link to={"/individual"}>
+                        <Link to={"/individual"} state={{ currentInfo: phone }}>
                             <img src={phone.imageUrl} alt={phone.phoneName} className='grid-img' />
                         </Link>
                         <h1 className='grid-item-name'>

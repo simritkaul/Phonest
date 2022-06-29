@@ -3,6 +3,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     width: 90%;
+    height: 100vh;
 }
 
 .list-item {
@@ -13,6 +14,11 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.list-item:hover {
+    background: rgb(240, 240, 240);
+    transition: 0.4s;
 }
 
 .list-item-name {

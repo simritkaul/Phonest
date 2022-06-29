@@ -18,17 +18,20 @@ button {
 
 .filters {
     border-radius: 20px;
-    height: 30px;
+    height: 40px;
+    width: 200px;
     padding: 2px 6px;
     margin: 0 40px 0 10px;
+    transition: 0.4s;
 }
 
 .add-btn {
-    height: 30px;
-    width: 80px;
+    height: 50px;
+    width: 120px;
     border-radius: 20px;
     border: none;
     background: #0d47a1;
+    font-size: 14px;
     color: white;
     padding: 2px 6px;
     margin: 0 40px;
@@ -40,17 +43,47 @@ button {
     cursor: pointer;
 }
 
+.no-phone-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.no-phone-grid > h2 {
+    margin-top: -200px;
+}
+
+.add-btn-no-phone {
+    height: 80px;
+    width: 180px;
+    border-radius: 20px;
+    border: none;
+    background: #0d47a1;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 40px;
+}
+
+.add-btn-no-phone:hover {
+    background: #4285f4;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
 .sort {
     border-radius: 20px;
-    height: 30px;
+    height: 40px;
+    width: 200px;
     padding: 2px 6px;
     margin: 0 40px 0 10px;
 }
 
 .grid-btn {
     border-radius: 20px 0 0 20px;
-    height: 30px;
-    width: 50px;
+    height: 40px;
+    width: 60px;
     border: none;
     transition: 0.4s;
 }
@@ -61,8 +94,8 @@ button {
 
 .list-btn {
     border-radius: 0 20px 20px 0;
-    height: 30px;
-    width: 50px;
+    height: 40px;
+    width: 60px;
     border: none;
     transition: 0.4s;
 }

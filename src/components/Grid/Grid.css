@@ -19,6 +19,11 @@
     align-items: center;
 }
 
+.grid-item:hover {
+    background: rgb(240, 240, 240);
+    transition: 0.4s;
+}
+
 .grid-item > a {
     width: 100%;
     height: 60%;
