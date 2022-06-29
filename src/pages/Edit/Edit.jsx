@@ -1,76 +1,42 @@
 import React, { useState } from "react";
-import "./Add.css";
-import { useSelector, useDispatch } from "react-redux";
-import { addPhone, selectInitialPhones } from "../../features/phone/phoneSlice";
+import "./Edit.css";
+import { useDispatch } from "react-redux";
+import { editPhone } from "../../features/phone/phoneSlice";
 import { Link, useLocation } from "react-router-dom";
 
-const Add = () => {
-    // const location = useLocation().state;
-    // let currentInfo = {};
-
+const Edit = () => {
     const location = useLocation();
-    const currentInfo = location.state?.currentInfo;
+    const { currentInfo } = location.state;
 
-    console.log(currentInfo);
+    console.log(location);
 
-    const idCount = useSelector(selectInitialPhones);
-    let updatedPhoneDetails = {
-        id: idCount.length + 1,
-        brandName: "",
-        phoneName: "",
-        imageUrl: "",
-        price: 0,
-        storage: 0,
-        ram: 0,
-        battery: 0,
-    };
-    const [phoneDetails, setPhoneDetails] = useState(
-        currentInfo
-            ? currentInfo
-            : {
-                  id: idCount.length + 1,
-                  brandName: "",
-                  phoneName: "",
-                  imageUrl: "",
-                  price: 0,
-                  storage: 0,
-                  ram: 0,
-                  battery: 0,
-              }
-    );
+    const [phoneDetails, setPhoneDetails] = useState(currentInfo);
 
     const handleInputBrand = (event) => {
-        updatedPhoneDetails.brandName = event.target.value;
         setPhoneDetails({ ...phoneDetails, brandName: event.target.value });
     };
 
     const handleInputPhone = (event) => {
-        updatedPhoneDetails.phoneName = event.target.value;
         setPhoneDetails({ ...phoneDetails, phoneName: event.target.value });
     };
 
     const handleInputImageUrl = (event) => {
-        updatedPhoneDetails.imageUrl = event.target.value;
         setPhoneDetails({ ...phoneDetails, imageUrl: event.target.value });
     };
 
     const handleInputPrice = (event) => {
-        updatedPhoneDetails.price = parseInt(event.target.value);
         setPhoneDetails({ ...phoneDetails, price: parseInt(event.target.value) });
     };
 
     const handleInputStorage = (event) => {
-        updatedPhoneDetails.storage = parseInt(event.target.value);
         setPhoneDetails({ ...phoneDetails, storage: parseInt(event.target.value) });
     };
 
     const handleInputRam = (event) => {
-        updatedPhoneDetails.ram = parseInt(event.target.value);
         setPhoneDetails({ ...phoneDetails, ram: parseInt(event.target.value) });
     };
 
     const handleInputBattery = (event) => {
-        updatedPhoneDetails.battery = parseInt(event.target.value);
         setPhoneDetails({ ...phoneDetails, battery: parseInt(event.target.value) });
     };
 
@@ -81,42 +47,42 @@ const Add = () => {
     };
 
     return (
-        <div className='add-container'>
+        <div className='edit-container'>
             <form className='new-info' onSubmit={handleSubmit}>
                 <label className='new-info-label'>
                     Brand Name
-                    <input type='text' name='brand' onChange={handleInputBrand} />
+                    <input type='text' name='brand' value={phoneDetails.brandName} onChange={handleInputBrand} />
                 </label>
                 <label className='new-info-label'>
                     Phone Name
-                    <input type='text' name='phone' onChange={handleInputPhone} />
+                    <input type='text' name='phone' value={phoneDetails.phoneName} onChange={handleInputPhone} />
                 </label>
                 <label className='new-info-label'>
                     Image Url for the Phone
-                    <input type='text' name='image' onChange={handleInputImageUrl} />
+                    <input type='text' name='image' value={phoneDetails.imageUrl} onChange={handleInputImageUrl} />
                 </label>
                 <label className='new-info-label'>
                     Price
-                    <input type='number' name='price' onChange={handleInputPrice} />
+                    <input type='number' name='price' value={phoneDetails.price} onChange={handleInputPrice} />
                 </label>
                 <label className='new-info-label'>
                     Storage
-                    <input type='number' name='storage' onChange={handleInputStorage} />
+                    <input type='number' name='storage' value={phoneDetails.storage} onChange={handleInputStorage} />
                 </label>
                 <label className='new-info-label'>
                     RAM
-                    <input type='number' name='ram' onChange={handleInputRam} />
+                    <input type='number' name='ram' value={phoneDetails.ram} onChange={handleInputRam} />
                 </label>
                 <label className='new-info-label'>
                     Battery
-                    <input type='number' name='battery' onChange={handleInputBattery} />
+                    <input type='number' name='battery' value={phoneDetails.battery} onChange={handleInputBattery} />
                 </label>
                 <Link to={"/"}>
                     <input
                         type='submit'
                         className='new-info-btn'
-                        value='Add to Inventory'
-                        onClick={() => dispatch(addPhone(phoneDetails))}
+                        value='Edit Inventory Item'
+                        onClick={() => dispatch(editPhone(phoneDetails))}
                     />
                 </Link>
                 {/* <button type='submit' className='new-info-btn' onClick={handleSubmit}>
@@ -127,4 +93,4 @@ const Add = () => {
     );
 };
 
-export default Add;
+export default Edit;

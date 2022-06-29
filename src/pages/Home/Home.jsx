@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
-import { phoneList } from "../../assets/phoneList";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Grid from "../../components/Grid/Grid";
 import List from "../../components/List/List";
 
 const Home = () => {
+    const currentAllPhones = useSelector((state) => state.phone.data);
+    console.log(currentAllPhones);
     const [filterVal, setFilterVal] = useState("none");
     const [sortVal, setSortVal] = useState("id");
     const [gridDisplay, setGridDisplay] = useState(true);
@@ -29,8 +31,8 @@ const Home = () => {
     };
 
     useEffect(() => {
-        setPhones(phoneList);
-    }, []);
+        setPhones(currentAllPhones);
+    }, [currentAllPhones]);
 
     return (
         <div className='home-container'>

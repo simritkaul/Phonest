@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { deletePhone } from "../../features/phone/phoneSlice";
+import { useDispatch } from "react-redux";
 import "./Grid.css";
 
 const Grid = ({ phones }) => {
+    const dispatch = useDispatch();
     return (
         <div className='grid-container'>
             {phones.map((phone) => {
@@ -15,10 +18,12 @@ const Grid = ({ phones }) => {
                             {phone.brandName} {phone.phoneName}
                         </h1>
                         <div className='grid-btns-price'>
-                            <Link to={"/add"}>
+                            <Link to={"/edit"} state={{ currentInfo: phone }}>
                                 <button className='grid-edit-btn'>Edit</button>
                             </Link>
-                            <button className='grid-delete-btn'>Delete</button>
+                            <button className='grid-delete-btn' onClick={() => dispatch(deletePhone(phone))}>
+                                Delete
+                            </button>
                             <p className='grid-price'>₹{phone.price}</p>
                         </div>
                     </div>
