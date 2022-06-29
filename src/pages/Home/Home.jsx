@@ -9,7 +9,7 @@ const Home = () => {
     const currentAllPhones = useSelector((state) => state.phone.data);
     console.log(currentAllPhones);
     const [filterVal, setFilterVal] = useState("none");
-    const [sortVal, setSortVal] = useState("id");
+    const [sortVal, setSortVal] = useState("newtoold");
     const [showInfo, setShowInfo] = useState(currentAllPhones.length > 0 ? true : false);
     const [gridDisplay, setGridDisplay] = useState(true);
     const [phones, setPhones] = useState([]);
@@ -29,6 +29,37 @@ const Home = () => {
             setGridDisplay(false);
         }
         // console.log(event.target.classList.value);
+    };
+
+    // Sorting function
+    const comparelowtohigh = (a, b) => {
+        if (a.price < b.price) {
+            return -1;
+        } else if (a.price > b.price) {
+            return 1;
+        } else {
+            return 0;
+        }
+    };
+
+    const comparehightolow = (a, b) => {
+        if (a.price > b.price) {
+            return -1;
+        } else if (a.price < b.price) {
+            return 1;
+        } else {
+            return 0;
+        }
+    };
+
+    const comparenewtoold = (a, b) => {
+        if (a.id > b.id) {
+            return -1;
+        } else if (a.id < b.id) {
+            return 1;
+        } else {
+            return 0;
+        }
     };
 
     useEffect(() => {
@@ -53,25 +84,22 @@ const Home = () => {
                     </Link>
                     <h4>Filter</h4>
                     <select className='filters' onChange={handleFilterChange}>
-                        <option className='filter-opt' value='fruit'>
+                        <option className='filter-opt' value='none'>
+                            None
+                        </option>
+                        <option className='filter-opt' value='brand'>
                             Brand
-                        </option>
-                        <option className='filter-opt' value='vegetable'>
-                            Vegetable
-                        </option>
-                        <option className='filter-opt' value='meat'>
-                            Meat
                         </option>
                     </select>
                     <h4>Sort</h4>
                     <select className='sort' onChange={handleSortChange}>
-                        <option className='sort-opt' value='new-to-old'>
+                        <option className='sort-opt' value='newtoold'>
                             Newest Arrivals
                         </option>
-                        <option className='sort-opt' value='low-to-high'>
+                        <option className='sort-opt' value='lowtohigh'>
                             Price (Low to High)
                         </option>
-                        <option className='sort-opt' value='high-to-low'>
+                        <option className='sort-opt' value='hightolow'>
                             Price (High to Low)
                         </option>
                     </select>
@@ -83,8 +111,8 @@ const Home = () => {
                     </button>
                 </div>
             )}
-            {showInfo && gridDisplay && <Grid phones={phones} />}
-            {showInfo && !gridDisplay && <List phones={phones} />}
+            {showInfo && gridDisplay && <Grid phones={phones} sortType={sortVal} />}
+            {showInfo && !gridDisplay && <List phones={phones} sortType={sortVal} />}
         </div>
     );
 };

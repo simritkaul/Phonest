@@ -4,8 +4,41 @@ import { deletePhone } from "../../features/phone/phoneSlice";
 import { useDispatch } from "react-redux";
 import "./Grid.css";
 
-const Grid = ({ phones }) => {
+const Grid = ({ phones, sortType }) => {
     const dispatch = useDispatch();
+
+    console.log(sortType);
+
+    const comparelowtohigh = (a, b) => {
+        if (a.price < b.price) {
+            return -1;
+        } else if (a.price > b.price) {
+            return 1;
+        } else {
+            return 0;
+        }
+    };
+
+    const comparehightolow = (a, b) => {
+        if (a.price > b.price) {
+            return -1;
+        } else if (a.price < b.price) {
+            return 1;
+        } else {
+            return 0;
+        }
+    };
+
+    const comparenewtoold = (a, b) => {
+        if (a.id > b.id) {
+            return -1;
+        } else if (a.id < b.id) {
+            return 1;
+        } else {
+            return 0;
+        }
+    };
+
     return (
         <div className='grid-container'>
             {phones.map((phone) => {
